@@ -25,7 +25,6 @@ function indieace_OrderHandler (order){
 		// case 'q':order_Exit(1);
 		case 'w':Character_information(_zhouping); break; 
 		case 's':Kungfu_information(_zhouping); break;
-		// case 'e':e_Back(_zhouping); break;//跳回上一层建筑 / building or place
 		default:
 	}
 }
@@ -53,17 +52,24 @@ function dispatcher (order){
 // }
 
 
-// /*
-// *  场景 回退 
-// */
-// function e_Back (){
-// 	var menpai_BuildList = [];
-	 
-// }
 
 
 
 
+/*
+*   展示 主角的 基本信息
+*/
+function Character_information (order){
+	drawCharacter_information();
+}
+
+
+/*
+*   展示 主角的 基本信息
+*/
+function Kungfu_information (order){
+	drawKungfu_information();
+}
 
 
 

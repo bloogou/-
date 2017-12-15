@@ -1,4 +1,5 @@
 document.body.onload = load;
+var timer ;
 
 	/*
 	* 装载
@@ -10,10 +11,16 @@ document.body.onload = load;
 		initData_Human();
 		initPlaces();
 
+		timer = requestAnimationFrame(loopFuc);
+
+
 		// 先写死 初始化 where am i = _menpai;
 		where_am_i = menpai;//place
 		drawWelcome();//init drew
 		drawMenPai();//drew
+	}
+	function loopFuc () {
+		//cancelAnimationFrame(timer);
 	}
 
 	/*
@@ -96,3 +103,26 @@ document.body.onload = load;
 		  ql:outside_qianlong
 		}
 	}
+
+
+//新的 游戏循环 机制
+
+if(!window.requestAnimationFrame){
+    var lastTime = 0;
+    window.requestAnimationFrame = function(callback){
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0,16.7-(currTime - lastTime));
+        var id  = window.setTimeout(function(){
+            callback(currTime + timeToCall);
+        },timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+    }
+}
+
+
+if (!window.cancelAnimationFrame) {
+    window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+    };
+}
