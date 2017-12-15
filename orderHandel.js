@@ -12,6 +12,7 @@ function checkOrder(order){
 		indieace_OrderHandler(order);
 	}
 	if(order >= '0' && order <='9'){
+		//这意味着 是 独立界面的 建筑 进入命令
 		dispatcher(order);
 	}
 }
@@ -23,8 +24,10 @@ function checkOrder(order){
 function indieace_OrderHandler (order){
 	switch (order){
 		// case 'q':order_Exit(1);
-		case 'w':Character_information(_zhouping); break; 
-		case 's':Kungfu_information(_zhouping); break;
+		case 'r':Refash_information(); break;//刷新当前place 操作信息
+		case 'w':Character_information(); break; 
+		case 's':Kungfu_information(); break;
+		case 'e':turn_Back(); break;
 		default:
 	}
 }
@@ -54,12 +57,27 @@ function dispatcher (order){
 
 
 
+/*
+*   展示 主角的 基本信息
+*/
+function turn_Back (){
+	//-1指令即为 各个界面 信息的初始化
+	dispatcher(-3);
+}
 
 
 /*
 *   展示 主角的 基本信息
 */
-function Character_information (order){
+function Refash_information (){
+	//-1指令即为 各个界面 信息的初始化
+	dispatcher(-1);
+}
+
+/*
+*   展示 主角的 基本信息
+*/
+function Character_information (){
 	drawCharacter_information();
 }
 

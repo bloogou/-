@@ -5,20 +5,19 @@ var timer ;
 	* 装载
 	*/
 	function load() {
-		// setInterval(myCanvasFuc, 1000 / 20);
-		// initUnList(roomList);
-		// initUnList(optList);
 		initData_Human();
 		initPlaces();
 
-		timer = requestAnimationFrame(loopFuc);
-
+		// timer = requestAnimationFrame(loopFuc);
 
 		// 先写死 初始化 where am i = _menpai;
 		where_am_i = menpai;//place
 		drawWelcome();//init drew
-		drawMenPai();//drew
 	}
+
+	/*
+	* 循环机制目前用不到
+	*/
 	function loopFuc () {
 		//cancelAnimationFrame(timer);
 	}
@@ -42,10 +41,13 @@ var timer ;
 		// orderLine.blur();
 	}
 
-
+	/*
+	*清空 命令输入拦
+	*/
 	function clearOrderLine () {
 		orderLine.value = '';
 	}
+
 
 	/*
 	*初始化数据之 人物
@@ -104,6 +106,10 @@ var timer ;
 		}
 	}
 
+
+
+
+//****暂时用不上的扩展*****//
 
 //新的 游戏循环 机制
 

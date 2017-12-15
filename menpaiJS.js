@@ -15,10 +15,18 @@ function menpai_JShandler(order) {
         case '6':   where_am_i = _diziju;    break;
             //  case '8':   where_am_i = _houting;   break;
         case '7':   where_am_i = _laohuju;   break;
-        case '8':   where_am_i = _goutside;   break;
+        case '8':   where_am_i = _goutside;  break;
+        case -1:
+        case -2:    drawMenPai();            break;//drew
+        case -3:    Refash_information();return;
         default:break;
     }
-    handlethis(-1);
+
+    /*初始化指令列表
+    * -1:仅仅重回 基本页面 数据不刷新
+    * -2: 全部刷新 页面临时变量 清空...
+    */
+    handlethis(-2);
 }
 
 /*

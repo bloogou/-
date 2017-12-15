@@ -6,10 +6,18 @@
 */
 function yanwuchgHandle (order){
     //... init first jump into 演武场
-    if(order == -1){
-        yanwuchgDraw();
-    }else{
-        yanwuchgEventHandle(order);
+    switch(order){
+        case -1:
+        case -2:
+            yanwuchgDraw();
+            break;
+        case -3:
+            where_am_i = menpai;//
+            Refash_information();//orderHandel.js
+            break;
+        default:
+            yanwuchgEventHandle(order);
+            break;
     }
 }
 
@@ -23,10 +31,6 @@ function yanwuchgHandle (order){
 */
 function yanwuchgEventHandle (order){
     switch(order){
-        case "0"://退回门派 场景
-            where_am_i = menpai;//place
-            drawMenPai();//drew
-            break;
         default:
             yanwuchgDrawTest();
     }
