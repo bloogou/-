@@ -1,19 +1,25 @@
 document.body.onload = load;
+var timer ;
 
 	/*
 	* 装载
 	*/
 	function load() {
-		// setInterval(myCanvasFuc, 1000 / 20);
-		// initUnList(roomList);
-		// initUnList(optList);
 		initData_Human();
 		initPlaces();
+
+		// timer = requestAnimationFrame(loopFuc);
 
 		// 先写死 初始化 where am i = _menpai;
 		where_am_i = menpai;//place
 		drawWelcome();//init drew
-		drawMenPai();//drew
+	}
+
+	/*
+	* 循环机制目前用不到
+	*/
+	function loopFuc () {
+		//cancelAnimationFrame(timer);
 	}
 
 	/*
@@ -35,10 +41,13 @@ document.body.onload = load;
 		// orderLine.blur();
 	}
 
-
+	/*
+	*清空 命令输入拦
+	*/
 	function clearOrderLine () {
 		orderLine.value = '';
 	}
+
 
 	/*
 	*初始化数据之 人物
@@ -96,3 +105,30 @@ document.body.onload = load;
 		  ql:outside_qianlong
 		}
 	}
+
+
+
+
+//****暂时用不上的扩展*****//
+
+//新的 游戏循环 机制
+
+if(!window.requestAnimationFrame){
+    var lastTime = 0;
+    window.requestAnimationFrame = function(callback){
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0,16.7-(currTime - lastTime));
+        var id  = window.setTimeout(function(){
+            callback(currTime + timeToCall);
+        },timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+    }
+}
+
+
+if (!window.cancelAnimationFrame) {
+    window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+    };
+}
