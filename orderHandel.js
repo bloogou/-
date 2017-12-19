@@ -45,29 +45,8 @@ function dispatcher (order){
 
 
 
-
-
-// /*
-// * 处理 门派场景建筑跳转 事件触发  逻辑
-// */
-// function place_Change (order){
-	 
-// }
-
-
-
-
 /*
-*   展示 主角的 基本信息
-*/
-function turn_Back (){
-	//-1指令即为 各个界面 信息的初始化
-	dispatcher(-3);
-}
-
-
-/*
-*   展示 主角的 基本信息
+*   刷新 至 当前建筑/场景选择信息界面
 */
 function Refash_information (){
 	//-1指令即为 各个界面 信息的初始化
@@ -83,12 +62,20 @@ function Character_information (){
 
 
 /*
-*   展示 主角的 基本信息
+*   展示 功夫信息
 */
 function Kungfu_information (order){
 	drawKungfu_information();
 }
 
+
+/*
+*   回退上一层
+*/
+function turn_Back (){
+	//-1指令即为 各个界面 信息的初始化
+	dispatcher(-3);
+}
 
 
 
