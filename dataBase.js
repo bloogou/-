@@ -3,13 +3,14 @@
 */
 
 //武功
-function SKILL (NAME,LEVEL,EXP,POWER,TYPE,SorM){
+function SKILL (NAME,LEVEL,EXP,POWER,FORCE_VALUE,SorM,TYPE){
   this.Name		= (NAME)?NAME:'无名招式';
   this.Leveal 	= (LEVEL)?LEVEL:0;
   this.Exp		= (EXP)?EXP:0;
   this.Power		= (POWER)?POWER:1;
-	this.Type 		= (TYPE)?TYPE:'attackSlill';//attack\defence
+  this.Forcevalue = (FORCE_VALUE)?FORCE_VALUE:0;//forcevalue;
   this.SorM 		= (SorM)?SorM:'Single';//    s_or_m;
+  this.Type     = (TYPE)?TYPE:'attackSlill';//attack\defence
 };
 
 // SKILL.prototype.attack = function() {

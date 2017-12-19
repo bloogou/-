@@ -18,7 +18,7 @@ function menpai_JShandler(order) {
         case '8':   where_am_i = _goutside;  break;
         case -1:
         case -2:    drawMenPai();            break;//drew
-        case -3:    Refash_information();return;
+        case -3:    menpai_JShandler(-1);return;//????
         default:break;
     }
 
