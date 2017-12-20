@@ -16,6 +16,7 @@ A html game ,create by simple js.
 即 构建面向对象交互。
 
 
+因为文件渐多 所以也 进行了 结构的重新构建 更清晰
 
 
 
