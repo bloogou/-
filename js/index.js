@@ -108,6 +108,37 @@ var timer ;
 
 
 
+//////图形逻辑///////
+
+
+/*
+*开始界面
+*/
+function drawWelcome(){
+	var welcome = "\n\n\n\n\n";
+	// Sleep(2628);
+	welcome += "\n\n\n\n\n\n\n\n\n\n\n";
+	welcome += "\t\t\t     FREE MYSELF · 独\n";
+	welcome += "\t\t\t     -----------------  \n\t\t\t   \t          门派\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n随意输入进入游戏\n\n\n\n\n\n";
+	showView.value = welcome;
+	return welcome;
+}
+
+
+/*
+*结束界面
+*/
+function drawEnding(){
+	var ending = "\n\n\n\n\n\n\n\n\n\n\n\n";
+	ending += "\t\t\t   FREE OURSELVES · 独\n";
+	ending += "\t\t\t   ------------------  \n";
+	showView.value = ending;
+	return ending;
+}
+
+
+
+
 
 //****暂时用不上的扩展*****//
 

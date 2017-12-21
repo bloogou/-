@@ -2052,7 +2052,7 @@ var menpai = new PLACE("门派", 0,
             new BULIDING(1,"老胡居    ",
                 new CHARACTERLIST(3,[ "老胡  ","刘云儿","胡慧  " ]),
                 new EVENTLIST(1,[ new MY_EVENT(true,"门派物资",15)]),
-                "_laohuju"),
+                "_laohuju")
         ]),
     new NEIGHBORLIST(4,["乡村      ","城北深山  ","林城      ","千龙山    "])
 );
@@ -2065,24 +2065,54 @@ var _dzjnxush = menpai.Buildinglist.Buildinglist[4];
 var _diziju = menpai.Buildinglist.Buildinglist[5];    
 var _laohuju = menpai.Buildinglist.Buildinglist[6];
 
-var _goutside = menpai.Neighborlist;  
- 
+var _goutside =  new BULIDING(1,"外出    ",
+                new CHARACTERLIST(0,[  ]),
+                new EVENTLIST(4,[ new MY_EVENT(true,"乡村      ",16), new MY_EVENT(true,"城北深山  ",17), new MY_EVENT(true,"林城      ",18), new MY_EVENT(true,"千龙山    ",19)]),
+                "_goutside")
+    _goutside["Neighborlist"] = menpai.Neighborlist;
+     
 
 //2.niberhod
-var outside_xiangcun = new OUTSIDE ("乡村    ",0,
-        new EVENTLIST_big(2,
-            new EVENTLIST(2,[ new MY_EVENT(true,"游走探访",21),new MY_EVENT(true,"演武招徒",22)])));
-var outside_shenshan = new OUTSIDE ("城北深山    ",0,
-        new EVENTLIST_big(3,
-            new EVENTLIST(2,[ new MY_EVENT(true,"行侠仗义",31),new MY_EVENT(true,"山中探险",32),new MY_EVENT(true,"深山之顶",33)])));
-var outside_lincheng = new OUTSIDE ("林城    ",0,
-        new EVENTLIST_big(9,
-            new EVENTLIST(2,[ new MY_EVENT(true,"秦记武馆",41),new MY_EVENT(true,"衙门",44),new MY_EVENT(true,"扬行镖局",45),
-                              new MY_EVENT(true,"八卦门林城分馆",46),new MY_EVENT(true,"茶楼",47),new MY_EVENT(true,"药馆",49),
-                              new MY_EVENT(true,"文启武定",50),new MY_EVENT(true,"有间酒楼",51),new MY_EVENT(true,"黑市",52)])));
- // new MY_EVENT(true,"太合武馆",42),new MY_EVENT(true,"虎拳武馆",43),new MY_EVENT(true,"破庙",48)
+// var outside_xiangcun = new OUTSIDE ("乡村    ",0,
+//         new EVENTLIST_big(2,
+//             new EVENTLIST(2,[ new MY_EVENT(true,"游走探访",21),new MY_EVENT(true,"演武招徒",22)])));
+// var outside_shenshan = new OUTSIDE ("城北深山    ",0,
+//         new EVENTLIST_big(3,
+//             new EVENTLIST(2,[ new MY_EVENT(true,"行侠仗义",31),new MY_EVENT(true,"山中探险",32),new MY_EVENT(true,"深山之顶",33)])));
+// var outside_lincheng = new OUTSIDE ("林城    ",0,
+//         new EVENTLIST_big(9,
+//             new EVENTLIST(2,[ new MY_EVENT(true,"秦记武馆",41),new MY_EVENT(true,"衙门",44),new MY_EVENT(true,"扬行镖局",45),
+//                               new MY_EVENT(true,"八卦门林城分馆",46),new MY_EVENT(true,"茶楼",47),new MY_EVENT(true,"药馆",49),
+//                               new MY_EVENT(true,"文启武定",50),new MY_EVENT(true,"有间酒楼",51),new MY_EVENT(true,"黑市",52)])));
+//  // new MY_EVENT(true,"太合武馆",42),new MY_EVENT(true,"虎拳武馆",43),new MY_EVENT(true,"破庙",48)
    
-var outside_qianlong = new OUTSIDE ("千龙山    ",0,
-        new EVENTLIST_big(2,
-            new EVENTLIST(2,[ new MY_EVENT(true,"拜访",61),new MY_EVENT(true,"攻占",62)])));
+// var outside_qianlong = new OUTSIDE ("千龙山    ",0,
+//         new EVENTLIST_big(2,
+//             new EVENTLIST(2,[ new MY_EVENT(true,"拜访",61),new MY_EVENT(true,"攻占",62)])));
+
+
+var outside_xiangcun =  new BULIDING(1,"乡村    ",
+                new CHARACTERLIST(0,[  ]),
+                new EVENTLIST(2,[ new MY_EVENT(true,"游走探访",21), new MY_EVENT(true,"演武招徒",22)]),
+                "outside_xiangcun")
+
+var outside_shenshan =  new BULIDING(1,"城北深山    ",
+                new CHARACTERLIST(0,[  ]),
+                new EVENTLIST(3,[ new MY_EVENT(true,"行侠仗义",31), new MY_EVENT(true,"山中探险",32),new MY_EVENT(true,"深山之顶",33)]),
+                "outside_shenshan")
+
+ var outside_lincheng =  new BULIDING(1,"林城    ",
+                new CHARACTERLIST(0,[  ]),
+                new EVENTLIST(9,[new MY_EVENT(true,"秦记武馆",41),new MY_EVENT(true,"衙门",44),new MY_EVENT(true,"扬行镖局",45),
+                              new MY_EVENT(true,"八卦门林城分馆",46),new MY_EVENT(true,"茶楼",47),new MY_EVENT(true,"药馆",49),
+                              new MY_EVENT(true,"文启武定",50),new MY_EVENT(true,"有间酒楼",51),new MY_EVENT(true,"黑市",52)]),
+                "outside_lincheng")
+ // new MY_EVENT(true,"太合武馆",42),new MY_EVENT(true,"虎拳武馆",43),new MY_EVENT(true,"破庙",48)
+
+
+var outside_qianlong =  new BULIDING(1,"千龙山    ",
+                new CHARACTERLIST(0,[  ]),
+                new EVENTLIST(3,[ new MY_EVENT(true,"拜访",61), new MY_EVENT(true,"攻占",62)]),
+                "outside_qianlong")
+
 

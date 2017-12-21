@@ -38,6 +38,13 @@ function handlethis (order){
         case '_yanwuchg':
             yanwuchgHandle(order);//yanwuchg
             break;
+        case '_goutside':
+            goutsideHandle(order);//goutside
+            break;
+        case 'outside_shenshan':
+            outside_shenshanCtrl.outside_shenshanHandle(order);//goutside
+            break;
+            
     }
 
 }
@@ -46,4 +53,26 @@ function handlethis (order){
 
 
 
+
+/*
+*门派
+*/
+function drawMenPai(){
+    var str = where_am_i.Name 
+    str += "\n->门内建筑:\n  * ———————— *\n";
+
+    //place
+    for (var temp = 0; temp < where_am_i.Buildinglist.Buildinglist.length ; temp++){
+        if (where_am_i.Buildinglist.Buildinglist[temp].Passive){
+            str = str + "  *  " 
+                + (temp + 1) + ". " 
+                + where_am_i.Buildinglist.Buildinglist[temp].Name 
+                + "   *\n";
+        }
+    }
+
+    str += "  *  8. 外出         *\n  * ———————— *\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+
+    showViewFun(str);
+}
 

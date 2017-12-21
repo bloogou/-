@@ -48,23 +48,25 @@ function EQUIPMENT (NAME,PHYSIQUE,POWER,SPEED,INTELLIGENT,TYPE){
     //export ：特性/装备技
 };  
 
-//人 NPC?
-function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INTERNALSTRENGTH,EQUIPMENT,SKILL){
- 	this.Name 				= (NAME)?NAME:'无名者' ;//name;
-  this.Leveal 			= (LEVEL)?LEVEL:0;
-  this.Exp				= (EXP)?EXP:0;
- 	this.Age 				= (AGE)?AGE:0;//age;
- 	this.Sex 				= (SEX)?SEX:'Man';//;Man/Woman
- 	this.Physique 			= (PHYSIQUE)?PHYSIQUE:0;//physique;//体质
-  this.Power				= (POWER)?POWER:0;
-	this.Speed 				= (SPEED)?SPEED:0;//speed;
-  this.Intelligent 		= (INTELLIGENT)?INTELLIGENT:0;//intelligent ;//悟性
-  this.Bone 				= (BONE)?BONE:0;//bone;//根骨
-	this.Internal_strength 	= (INTERNALSTRENGTH)?INTERNALSTRENGTH:null  ;//internal_strength;//内功
-	this.Equipment			= (EQUIPMENT)?EQUIPMENT:null ;//clothes, arms, shoes; //装备列表
-	this.Skill 				= (SKILL)?SKILL:null;//skill_1, skill_2, skill_3, skill_4, skill_5;//技能列表
- //  STANDBY          standby_1, standby_2, standby_3, standby_4, standby_5;//备用
-};//occupation!
+// //人 NPC? -->> HUMAN.class
+// function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INTERNALSTRENGTH,EQUIPMENT,SKILL,FAME){
+//  	this.Name 				= (NAME)?NAME:'无名者' ;//name;
+//   this.Leveal 			= (LEVEL)?LEVEL:0;
+//   this.Exp				= (EXP)?EXP:0;
+//  	this.Age 				= (AGE)?AGE:0;//age;
+//  	this.Sex 				= (SEX)?SEX:'Man';//;Man/Woman
+//  	this.Physique 			= (PHYSIQUE)?PHYSIQUE:0;//physique;//体质
+//   this.Power				= (POWER)?POWER:0;
+// 	this.Speed 				= (SPEED)?SPEED:0;//speed;
+//   this.Intelligent 		= (INTELLIGENT)?INTELLIGENT:0;//intelligent ;//悟性
+//   this.Bone 				= (BONE)?BONE:0;//bone;//根骨
+// 	this.Internal_strength 	= (INTERNALSTRENGTH)?INTERNALSTRENGTH:null  ;//internal_strength;//内功
+// 	this.Equipment			= (EQUIPMENT)?EQUIPMENT:null ;//clothes, arms, shoes; //装备列表
+// 	this.Skill 				= (SKILL)?SKILL:null;//skill_1, skill_2, skill_3, skill_4, skill_5;//技能列表
+//   this.Fame         = (FAME)?FAME:0;
+//   this.Fight = Fight;
+//  //  STANDBY          standby_1, standby_2, standby_3, standby_4, standby_5;//备用
+// };//occupation!
 
 
 
@@ -119,7 +121,7 @@ function NEIGHBORLIST(MAX,NAMES){
 
 function PLACE (NAME,FAME,BULIDINGLIST,NEIGHBORLIST){//地点
  this.Name 			= (NAME)?NAME:'无名场景' ;//             this.NAMEthis.:'',//;
- this.FAME 			= (FAME)?FAME:0 ;//             f_S, f_M;
+ this.Fame 			= (FAME)?FAME:0 ;//             f_S, f_M;
  this.Buildinglist 	= (BULIDINGLIST)?BULIDINGLIST:'';//List     T_bulidinglist;
 //   CHARACTERLIST    T_character_list;
 //   EVENTLIST        T_event_list;
@@ -146,3 +148,16 @@ function TEMP_FIGHT(NAME,HP,MP,ATTACKREADY,SPEED,SKILL,POWER){
 	//差不多了似乎
 };
 
+
+
+
+
+
+
+/*
+* 战斗
+* adv : 对手
+*/
+function Fight (adv){
+
+} 
