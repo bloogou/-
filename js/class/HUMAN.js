@@ -18,16 +18,18 @@ function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INT
   this.Init = init;
   this.Fight = Fight;
   this.UnderAttack = underAttack;
-  this.Fight = Fight;
 
   /*
+  * 初始化 血量内力 
   * 因为 一些 原因 不得不 将 部分 数值的 初始化 延后
-  * Rad  血量,
+  * Rad  血量, 
   * Blue 内力
+  * attackState  可出招 状态 （依据speed 判断）
   */
   function init(){
-    this.Rad          = this.Physique  + this.Bone * 3 this.Intelligent[0].Huti + this.Equipment.CLothes.Physique;
+    this.Rad          = this.Physique  + this.Bone * 3 + this.Intelligent[0].Huti + this.Equipment.CLothes.Physique;
     this.Blue         = this.Intelligent[0].Forcevalue;
+    this.attackState  = false;
   }
 
   // 如果是 ARPG 的话 血量啊 什么的就相当于 基础属性了
@@ -38,15 +40,17 @@ function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INT
   /*
   * 战斗
   * adv : 对手
+  * 出招 系统...
   */
   function Fight (adv){ 
     var power = this.Power + this.Equipment.Weapon.Power;
     // 出招时是否使用武功
     var withSkill = null;
-    if(this.Blue > this.Skill[0].Forcevalue){
-      power += this.Skill[0].Power;
-      this.Blue -= this.Skill[0].Forcevalue;
-      withSkill = this.Skill[0];
+    var skill = this.checkSkill(); 
+    if(this.Blue > skill.Forcevalue){
+      power += skill.Power;
+      this.Blue -= skill.Forcevalue;
+      withSkill = skill;
     }
     adv.underAttack(power);
     return withSkill;
@@ -60,6 +64,38 @@ function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INT
   function underAttack (attack){
     this.Rad -= attack;
   }
+
+
+  /*
+  * 返回 血量
+  */
+  function getRad (){
+    return this.Rad;
+  }
+
+
+  /*
+  * 返回 出招速度
+  */
+  function getSpeed (){
+    return this.Speed;
+  }
+
+
+ /*
+  * 返回 选择的招式
+  */
+  function checkSkill (){
+    return this.Skill[0];
+  }
+
+ // /*
+ //  * 返回 出招威力
+ //  */
+ //  function getPower (){
+ //    return this.Skill[0];
+ //  }
+
 
 
 //还要定义一系列 get方法 去获得  被 装备啊 / 武功啊等等 加成的 属性 从 对象直接获取的 都是 基础属性

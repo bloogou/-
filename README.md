@@ -1,6 +1,15 @@
 # -
 A html game ,create by simple js. 
 //********开发日志
+/12 21/
+in 方法 ("name" in a)
+
+才知道 前两天用的创建 对象的方法叫 构造函数法 而昨天 不得不 转换 方法 的问题 可以有解决办法 ： FOO.prototype -> 即指向 构造函数...
+
+得了 今天看看require.js!!!
+
+有点烦 ，看看情况 要不要模块化 
+下周要 修电脑可能 暂时不能更新吧 周五 争取 多弄点～
 
 /12 20/
 昨天 把外出 做好了
@@ -18,6 +27,27 @@ A html game ,create by simple js.
 
 因为文件渐多 所以也 进行了 结构的重新构建 更清晰
 
+随着开发 更多的 东西需要思考
+
+以后每日要多 一些 记录 对需要以后扩展的东西进行 标记
+留在 以后 扩展
+今天还对 this 的使用 和 function object 的 typeof 更多了解 推荐 阮一峰 的博客
+http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html
+
+因为 考虑 将各脚本 内部函数 封闭在其内部 所以 学到了 bnid等 ，继续尝试 类似 作用域的概念
+
+..js 框架上看到的 一句：Object.protaltype.toString  返回的是构造 类 名 。。。似乎没啥卵用
+
+所以暂定 对象 包函数的模式
+
+阮一峰 说ES6 引入了 class 以后再试
+
+
+
+今日:
+
+..1. 血量 计算， 内力计算， 包括 各项基础属性 对 2者影响
+..2. 出招系同 ，fight 系统 。。。。
 
 
 

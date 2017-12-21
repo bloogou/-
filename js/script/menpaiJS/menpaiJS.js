@@ -42,7 +42,7 @@ function handlethis (order){
             goutsideHandle(order);//goutside
             break;
         case 'outside_shenshan':
-            outside_shenshanHandle(order);//goutside
+            outside_shenshanCtrl.outside_shenshanHandle(order);//goutside
             break;
             
     }

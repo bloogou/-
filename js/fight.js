@@ -4,44 +4,9 @@
 function fight(memebrList,data) {
     var temp_fight = {};
     var str = '';
-    // var temp_diren = tools.RandomRound(3); //tools.js
-    // if (temp_diren == 3){
-    //     if (humanlist[_zhouping].level <= 5){
-    //         str += "你遇到了恶霸，实力相差悬殊，暂时不是对手，从旁离开了.\n";
-    //         return 'taoli';
-    //     }else if (humanlist[_zhouping].level > 5){
-    //         ORDER order;
-            
-    //         str += "你遇到了恶霸，实力相差不多，是否迎头痛击？\n输入‘s’选择是\n";
-    //         cin >> order;
-    //         if (order != 's')return taoli;
-    //     }
-    // }
-    
-    temp_fight[1].name = humanlist[_liumang].name;
-    temp_fight[1].xue = (humanlist[_liumang].physique + humanlist[_liumang].bone * 3) + humanlist[_liumang].internal_strength.huti + humanlist[_liumang].clothes.physique;
-    temp_fight[1].nei = humanlist[_liumang].internal_strength.forcevalue;//nei 内功value
-    temp_fight[1].speed = humanlist[_liumang].speed + humanlist[_liumang].shoes.speed;
-    temp_fight[1].kechuzhao = 0;//kechuzhao
-    temp_fight[1].shill = humanlist[_liumang].skill_1.name;
-    temp_fight[1].power = humanlist[_liumang].skill_1.power + humanlist[_liumang].power + humanlist[_liumang].arms.power;
-    
-    temp_fight[2].name = humanlist[_dipi].name;
-    temp_fight[2].xue = (humanlist[_dipi].physique + humanlist[_dipi].bone * 3) + humanlist[_dipi].internal_strength.huti + humanlist[_dipi].clothes.physique;
-    temp_fight[2].nei = humanlist[_dipi].internal_strength.forcevalue;//nei 内功value
-    temp_fight[2].speed = humanlist[_dipi].speed + humanlist[_dipi].shoes.speed;
-    temp_fight[2].kechuzhao = 0;//kechuzhao
-    temp_fight[2].shill = humanlist[_dipi].skill_1.name;
-    temp_fight[2].power = humanlist[_dipi].skill_1.power + humanlist[_dipi].power + humanlist[_dipi].arms.power;
-    temp_fight[3].name = humanlist[_eba].name;
-    temp_fight[3].xue = (humanlist[_eba].physique + humanlist[_eba].bone * 3) + humanlist[_eba].internal_strength.huti + humanlist[_eba].clothes.physique;
-    temp_fight[3].nei = humanlist[_eba].internal_strength.forcevalue;//nei 内功value
-    temp_fight[3].speed = humanlist[_eba].speed + humanlist[_eba].shoes.speed;
-    temp_fight[3].kechuzhao = 0;//kechuzhao
-    temp_fight[3].shill = humanlist[_eba].skill_1.name;
-    temp_fight[3].power = humanlist[_eba].skill_1.power + humanlist[_eba].power + humanlist[_eba].arms.power;
-    
-    
+
+   
+   
     cout << "\n你遇到了" << temp_fight[temp_diren].name << "\n";
     while (temp_fight[0].xue > 0 && temp_fight[temp_diren].xue > 0){
         //ziji
