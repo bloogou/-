@@ -91,6 +91,8 @@ var timer ;
 		
 		//主角周平
 		_zhouping = humanList_Obj[0];
+		//流氓
+		_liumang = tools.CopyObj(humanList_Obj[1]);
 
 	}
 

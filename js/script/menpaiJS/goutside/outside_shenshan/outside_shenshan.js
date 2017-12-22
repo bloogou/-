@@ -73,7 +73,7 @@ var outside_shenshanCtrl = {
         
         str += where_am_i.Eventlist.My_event[0].Name;
             
-        var enemy = outside_shenshanCtrl();
+        var enemy = this.findEnemy();
         var temp_result = -1//fight(_zhouping, fight_sh_xx);
 
         switch (temp_result)
@@ -120,20 +120,24 @@ var outside_shenshanCtrl = {
 
 
     findEnemy:function (){
-            // var temp_diren = tools.RandomRound(3); //tools.js
-        // if (temp_diren == 3){
-        //     if (humanlist[_zhouping].level <= 5){
-        //         str += "你遇到了恶霸，实力相差悬殊，暂时不是对手，从旁离开了.\n";
-        //         return 'taoli';
-        //     }else if (humanlist[_zhouping].level > 5){
-        //         ORDER order;
+        // var temp_diren = tools.RandomRound(3); //tools.js
+        // switch(temp_diren){
+        //     case 3:
+        //     // if (_zhouping.Leveal <= 5){
+        //     //     str += "你遇到了恶霸，实力相差悬殊，暂时不是对手，从旁离开了.\n";
+        //     //     return 'taoli';
+        //     // }else if (humanlist[_zhouping].level > 5){
+        //     //     ORDER order;
                 
-        //         str += "你遇到了恶霸，实力相差不多，是否迎头痛击？\n输入‘s’选择是\n";
-        //         cin >> order;
-        //         if (order != 's')return taoli;
-        //     }
-        // }
+        //     //     str += "你遇到了恶霸，实力相差不多，是否迎头痛击？\n输入‘s’选择是\n";
+        //     //     cin >> order;
+        //     //     if (order != 's')return taoli;
+        //     // }
         
+        //         break;
+
+        // }
+           return tools.CopyObj(_liumang);
     },
 }
 

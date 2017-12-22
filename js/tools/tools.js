@@ -11,6 +11,18 @@ function tools (){
 	}
 	
 
+	/*
+	* 简单 的 对象 复制
+	* s:数据源(要拷贝的对象)
+	*/
+	function CopyObj(s){
+		var o={};
+		for(var atr in s){
+			o[atr] = s[atr];
+		}
+		return o;
+	}
+	
 
 
 
@@ -26,6 +38,7 @@ function tools (){
 
 
 	return {
-		'RandomRound':RandomRound
+		'RandomRound':RandomRound,
+		'CopyObj':CopyObj
 	}
 }
