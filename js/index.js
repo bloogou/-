@@ -91,6 +91,12 @@ var timer ;
 		
 		//主角周平
 		_zhouping = humanList_Obj[0];
+		//为了测试 调高一点内力
+		_zhouping.Internal_strength[0].Forcevalue = 20;
+		//流氓
+		_liumang = tools.CopyObj(humanList_Obj[1]);
+		_dipi = tools.CopyObj(humanList_Obj[2]);
+		_eba = tools.CopyObj(humanList_Obj[3]);
 
 	}
 

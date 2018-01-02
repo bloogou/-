@@ -7,6 +7,7 @@ var orderLine = document.getElementById("orderLine");
 var where_am_i = -1;//定位 玩家 位置, -1 为初始位置 以后加入存档 后 ，不仅要联系上数据库，这里当然也要 读档啦！～
 var humanList_Obj = [];
 
+var fight_Save_OneRound_Limit = 60;
 
 //人物
 var humanlist =
