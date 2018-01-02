@@ -119,7 +119,7 @@ var humanlist =
             0,// huti;//==?
             0,// physique;//体质
             0,// speed;
-            0,//nielizhi
+            20,//nielizhi
             0,// bone;//根骨
             [ 0 ]
         ],
@@ -206,7 +206,7 @@ var humanlist =
             0,// huti;//==?
             0,// physique;//体质
             0,// speed;
-            0,//neili
+            20,//neili
             0,// bone;//根骨
         ],
         [[//clothes,
@@ -292,7 +292,7 @@ var humanlist =
             0,// huti;//==?
             1,// physique;//体质
             0,// speed;
-            1,//nielizhi
+            100,//nielizhi
             0,// bone;//根骨
             [ 0 ]
         ],

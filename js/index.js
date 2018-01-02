@@ -1,5 +1,6 @@
 document.body.onload = load;
 var timer ;
+var onFight = false;
 
 	/*
 	* 装载

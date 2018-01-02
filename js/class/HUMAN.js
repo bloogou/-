@@ -95,7 +95,9 @@ function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INT
       this.Speed += 1;
       this.Exp = 0;
       str += "\n人物升级\n";
-    } 
+    } else{
+      this.Exp += exp;
+    }
     showViewFun(str);
   }
 

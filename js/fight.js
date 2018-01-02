@@ -1,7 +1,8 @@
 /*
 * 战斗逻辑
 */
-function fight(o1,o2) {
+function fight(o1,o2,callback) {
+    onFight = true;
     var temp_fight = {};
     var str = '';
     // 一些 血呀 出招 。。。 算作 战斗临时变量吧～
@@ -47,7 +48,7 @@ function fight(o1,o2) {
             if(!o1.isAlive() || !o2.isAlive()){ 
                 //战斗结束 ...
                 var str_inLine = "战斗结束 ...\n"+
-                attackA.Name + "被这一招击杀了\n_____________________\n"
+                attackA.Name + "被这一招击败了\n_____________________\n"+
                 attackO.Name + "获胜\n\n";
                 showViewFun(str_inLine);
                 if(o1 == _zhouping && o1.isAlive()){
@@ -58,6 +59,10 @@ function fight(o1,o2) {
                     temp_Str += "掌门威望上升\n";
                     temp_Str += "门派威望上升\n\n";
                     showViewFun(temp_Str);
+                }
+                onFight = false;
+                if(callback){
+                    callback(attackO,attackA);
                 }
                 window.clearInterval(fightCircle);
             }else{

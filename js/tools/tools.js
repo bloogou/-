@@ -7,7 +7,7 @@ var tools = {
 	* n:0 , m:1
 	*/
 	RandomRound:function RandomRound(m=100,n=0){
-		return Math.round(n + 0.5 + Math.random(m));
+		return Math.round(n + 0.5 + Math.random() * m);
 	},
 	
 
