@@ -28,7 +28,8 @@ function indieace_OrderHandler (order){
 		case 'w':Character_information(); break; 
 		case 's':Kungfu_information(); break;
 		case 'e':turn_Back(); break;
-		default:
+		default://默认也要发送到具体页面去
+            dispatcher(order);break;
 	}
 }
 

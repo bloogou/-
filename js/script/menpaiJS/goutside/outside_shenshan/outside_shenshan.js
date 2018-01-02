@@ -15,6 +15,15 @@ var outside_shenshanCtrl = {
                 where_am_i = _goutside;// 他的上一级 ，其实应该 在跳转 盏里面去取
                 Refash_information();//orderHandel.js
                 break;
+            case 'Y':
+            case 'y':
+              fight(_zhouping, enemy,this.XXZY_callback);
+              break;
+            case 'N':
+            case 'n':
+                var str = "你遇到了恶霸, 并选择了逃离.\n\n\n\n\n\n\n\n\n\n";
+                showViewFun(str);
+                break;
             default:
                 this.outside_shenshanEventHandle(order);
                 break;
@@ -73,12 +82,34 @@ var outside_shenshanCtrl = {
         
         str += "  " + where_am_i.Eventlist.My_event[0].Name+"\n\n\n\n\n\n\n\n\n";
         showViewFun(str);
-            
         var enemy = this.findEnemy();
-        // var temp_result = 
-        fight(_zhouping, enemy);
+        switch(enemy.Name){
+            // case '流氓':
+            // case '地痞':
+            //     break;
+            case '恶霸':
+                if (_zhouping.Leveal <= 3){
+                    str = "你遇到了恶霸，实力相差悬殊，暂时不是对手，从旁离开了.\n\n\n\n\n\n\n\n\n\n";
+                    showViewFun(str);
+                    return 'taoli';
+                }else if (_zhouping.Leveal <= 5){
+                    str += "你遇到了恶霸，实力相差不多，是否迎头痛击？\n输入‘Y’选择是,‘N’选择逃离\n";
+                    showViewFun(str);
+                    return 'waitY';
+                }
+                break;
+        }
 
-        // switch (temp_result)
+        fight(_zhouping, enemy,this.XXZY_callback);
+    },
+
+    /*
+    * 行侠仗义 战斗 事件 回掉
+    * attacker : 最后一次攻击的人(获胜方),
+    * loser    : 战败者
+    */
+    XXZY_callback: function (attacker, loser){
+ // switch (temp_result)
         // {
         //     case  'win': 
         //         str += "\n战斗胜利\n";
@@ -118,28 +149,22 @@ var outside_shenshanCtrl = {
     },
 
 
-
-
     findEnemy:function (){
-        // var temp_diren = tools.RandomRound(3); //tools.js
-        // switch(temp_diren){
-        //     case 3:
-        //     // if (_zhouping.Leveal <= 5){
-        //     //     str += "你遇到了恶霸，实力相差悬殊，暂时不是对手，从旁离开了.\n";
-        //     //     return 'taoli';
-        //     // }else if (humanlist[_zhouping].level > 5){
-        //     //     ORDER order;
-                
-        //     //     str += "你遇到了恶霸，实力相差不多，是否迎头痛击？\n输入‘s’选择是\n";
-        //     //     cin >> order;
-        //     //     if (order != 's')return taoli;
-        //     // }
-        
-        //         break;
-
-        // }
-        var o = tools.CopyObj(_dipi)//_eba)//_liumang);
-        o.Exp = 10;
+        var o = null;
+        switch(tools.RandomRound(3)){
+            case 1:
+                o = tools.CopyObj(_liumang);
+                o.Exp = 10;
+                break;
+            case 2:
+                o = tools.CopyObj(_dipi);//)//_eba)//);
+                o.Exp = 20;
+                break;
+            case 3:
+                o = tools.CopyObj(_eba);
+                o.Exp = 50;
+                break;
+        }
         return o;
     },
 }
