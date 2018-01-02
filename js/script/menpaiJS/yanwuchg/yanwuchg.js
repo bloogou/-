@@ -72,16 +72,7 @@ function yanwuchgDrawTest (){
     var str = where_am_i.Name 
     str += '\n·········\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n';
     str += "\n尽气凝神后，一式 白云出轴 斜刺而出 \n翻身凌空 只见一招 金雁横空 接踵而至 \n又一式 有凤来仪 招招紧扣 玄妙之极\n随着一式式华山剑法在手中展开剑法熟练度在稳步增长\n";
-    str +=  _zhouping.Skill[0].Name + " 熟练度 + 2 \n";
-    _zhouping.Skill[0].Exp += 2;
-    if (_zhouping.Skill[0].Exp >= _zhouping.Skill[0].Leveal *_zhouping.Skill[0].Forcevalue * 10){//可以考虑 加个 升级瓶颈什么的～ 同时 也要把 则个逻辑脱离出来
-        _zhouping.Skill[0].Leveal++;
-        _zhouping.Skill[0].Exp = 0;
-        str += _zhouping.Skill[0].Name + "升级！现在" + _zhouping.Skill[0].Leveal + "级\n";
-        _zhouping.Skill[0].Power += _zhouping.Skill[0].Forcevalue * _zhouping.Skill[0].Leveal * 2;
-        str += "剑法威力上升至" + (_zhouping.Skill[0].Power + 0) + "点\n";
-    }
-
+    str += _zhouping.skillAddExp(_zhouping.Skill[0]);
     str += "\n\n\n\n\n~~~~~~~~~~~~~~~~~~~~\n";
     showViewFun(str);
 }

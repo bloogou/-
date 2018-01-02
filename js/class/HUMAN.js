@@ -18,6 +18,13 @@ function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INT
   this.Init = init;
   this.Fight = Fight;
   this.UnderAttack = underAttack;
+  this.addExp = addExp;
+  this.saveAttack = saveAttack;
+  this.skillAddExp = skillAddExp;
+  this.isAlive = isAlive;
+  this.getSpeed = getSpeed;
+  this.getRad = getRad;
+  this.checkSkill = checkSkill;
 
   /*
   * 初始化 血量内力 
@@ -27,10 +34,25 @@ function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INT
   * attackState  可出招 状态 （依据speed 判断）
   */
   function init(){
-    this.Rad          = this.Physique  + this.Bone * 3 + this.Intelligent[0].Huti + this.Equipment.CLothes.Physique;
-    this.Blue         = this.Intelligent[0].Forcevalue;
-    this.attackState  = false;
+    this.Rad          = this.Physique  + this.Bone * 3 + this.Internal_strength[0].Huti + this.Equipment.CLothes.Physique;
+    this.Blue         = this.Internal_strength[0].Forcevalue;
+    this.attackSaves  = 0;
+    // this.attackState  = false;
   }
+
+  /*
+  *如果 返回 false 证明 已经存储足够时间 出招
+  * 返回true 则是 说 还未能出招 当前轮次 积累一次 时间 成功
+  */
+  function saveAttack (){
+    if(this.attackSaves + this.getSpeed() >= fight_Save_OneRound_Limit){
+      this.attackSaves = 0;
+      return false;
+    }else{
+      this.attackSaves += this.getSpeed();
+      return true;
+    }
+  } 
 
   // 如果是 ARPG 的话 血量啊 什么的就相当于 基础属性了
   // 而如果 不是 实时对战的话 可能只在 需要时 去计算一下 先 这样...
@@ -45,15 +67,55 @@ function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INT
   function Fight (adv){ 
     var power = this.Power + this.Equipment.Weapon.Power;
     // 出招时是否使用武功
-    var withSkill = null;
+    var withSkill = {power:0,skill:null};
     var skill = this.checkSkill(); 
     if(this.Blue > skill.Forcevalue){
       power += skill.Power;
       this.Blue -= skill.Forcevalue;
-      withSkill = skill;
+      withSkill.skill = skill;
+      this.skillAddExp(this.Skill[0],2);
     }
-    adv.underAttack(power);
+    withSkill.power = power;
+    //这里增加武功 升级 
+    adv.UnderAttack(power);
     return withSkill;
+  }
+
+
+
+  /*
+  * 通过事件 获得了 经验 自己判断是否 升级
+  */
+  function addExp(exp){
+    var str = "\n人物经验增加 " + exp +" 点\n";
+    if((this.Exp + exp) > this.Leveal * this.Leveal * 100){
+      this.Leveal++;
+      this.Physique += 2;
+      this.Power += 2;
+      this.Speed += 1;
+      this.Exp = 0;
+      str += "\n人物升级\n";
+    } 
+    showViewFun(str);
+  }
+
+  /*
+  * 通过事件 获得了 经验 自己判断是否 升级
+  */
+  function skillAddExp(skill,exp = 2,showStr = false){
+    var str = "\n人物武功 " + skill.Name + " 经验增加 " + exp +" 点\n";
+    skill.Exp += 2;
+    if (skill.Exp >= skill.Leveal * skill.Forcevalue * 10){//可以考虑 加个 升级瓶颈什么的～ 同时 也要把 则个逻辑脱离出来
+        skill.Leveal++;
+        skill.Exp = 0;
+        str += skill.Name + "升级！现在" + skill.Leveal + "级\n";
+        skill.Power += skill.Forcevalue * skill.Leveal * 2;
+        str += "剑法威力上升至" + (skill.Power + 0) + "点\n";
+    }
+    if(showStr){
+      showViewFun(str);
+    }
+    return str;
   }
 
 
@@ -63,6 +125,11 @@ function HUMAN (NAME,LEVEL,EXP,AGE,SEX,PHYSIQUE,POWER,SPEED,INTELLIGENT,BONE,INT
   */
   function underAttack (attack){
     this.Rad -= attack;
+    return 
+  }
+
+  function isAlive(){
+    return (this.getRad() > 0);
   }
 
 

@@ -69,51 +69,52 @@ var outside_shenshanCtrl = {
     * 外出 深山 行侠仗义 绘画
     */
     outside_shenshanDraw_XXZY:function  (){
-        var str = where_am_i.Name;
+        var str = where_am_i.Name + "\n";
         
-        str += where_am_i.Eventlist.My_event[0].Name;
+        str += "  " + where_am_i.Eventlist.My_event[0].Name+"\n\n\n\n\n\n\n\n\n";
+        showViewFun(str);
             
         var enemy = this.findEnemy();
-        var temp_result = -1//fight(_zhouping, fight_sh_xx);
+        // var temp_result = 
+        fight(_zhouping, enemy);
 
-        switch (temp_result)
-        {
-            case  'win': 
-                str += "\n战斗胜利\n";
-                str += "\n人物经验增加，技能熟练度增加！\n";
-                str += "门派威望上升\n";
-                str += "掌门威望上升\n";
-                _zhouping.exp += 10;
-                _zhouping.Skill[0].exp += 5;
-                menpai.Fame += 1;
-                _zhouping.Fame += 2;
-                if (_zhouping.exp >= _zhouping.Leveal *  _zhouping.Leveal * 100){
-                    _zhouping.Leveal++;
-                    _zhouping.Physique += 2;
-                    _zhouping.Power += 2;
-                    _zhouping.Speed += 1;
-                    _zhouping.Exp = 0;
-                    str += "\n人物升级\n";
-                }
-                if (_zhouping.Skill[0].Exp >= _zhouping.Skill[0].ForceLev * _zhouping.Skill[0].Leveal *  _zhouping.Skill[0].Leveal * 10){
-                    _zhouping.Skill[0].Leveal++;
-                    _zhouping.Skill[0].Power += _zhouping.Skill[0].ForceLev * 2;
-                    _zhouping.Skill[0].Exp = 0;
-                    str += "\n" + _zhouping.Skill[0].Name + "升级\n";
-                }
-                break;
+        // switch (temp_result)
+        // {
+        //     case  'win': 
+        //         str += "\n战斗胜利\n";
+        //         str += "\n人物经验增加，技能熟练度增加！\n";
+        //         str += "门派威望上升\n";
+        //         str += "掌门威望上升\n";
+        //         _zhouping.exp += 10;
+        //         _zhouping.Skill[0].exp += 5;
+        //         menpai.Fame += 1;
+        //         _zhouping.Fame += 2;
+        //         if (_zhouping.exp >= _zhouping.Leveal *  _zhouping.Leveal * 100){
+        //             _zhouping.Leveal++;
+        //             _zhouping.Physique += 2;
+        //             _zhouping.Power += 2;
+        //             _zhouping.Speed += 1;
+        //             _zhouping.Exp = 0;
+        //             str += "\n人物升级\n";
+        //         }
+        //         if (_zhouping.Skill[0].Exp >= _zhouping.Skill[0].ForceLev * _zhouping.Skill[0].Leveal *  _zhouping.Skill[0].Leveal * 10){
+        //             _zhouping.Skill[0].Leveal++;
+        //             _zhouping.Skill[0].Power += _zhouping.Skill[0].ForceLev * 2;
+        //             _zhouping.Skill[0].Exp = 0;
+        //             str += "\n" + _zhouping.Skill[0].Name + "升级\n";
+        //         }
+        //         break;
             
-            case  'taoli':
-                str += "你远离了敌人\n";
-                break;
-            case  'fail':
-                str += "\n你被敌人击败，但及时逃离了战斗,练好武功后再来挑战！\n";
-                break;
-            default:
-                break;
-        }
-        str += '\n·········\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n';
-        showViewFun(str);
+        //     case  'taoli':
+        //         str += "你远离了敌人\n";
+        //         break;
+        //     case  'fail':
+        //         str += "\n你被敌人击败，但及时逃离了战斗,练好武功后再来挑战！\n";
+        //         break;
+        //     default:
+        //         break;
+        // }
+        // str += '\n·········\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n';
     },
 
 
@@ -137,7 +138,9 @@ var outside_shenshanCtrl = {
         //         break;
 
         // }
-           return tools.CopyObj(_liumang);
+        var o = tools.CopyObj(_dipi)//_eba)//_liumang);
+        o.Exp = 10;
+        return o;
     },
 }
 
